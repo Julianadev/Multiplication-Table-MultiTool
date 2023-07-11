@@ -3,7 +3,13 @@ import math
 
 def calcular_tabuada():
     numero = int(numero_entry.get())
-    mult = int(mult_entry.get())
+    mult = mult_entry.get()
+
+    if mult:
+        mult = int(mult)
+    else:
+        mult = 0
+
     escolha = escolha_var.get()
 
     if escolha == 1:
@@ -26,51 +32,28 @@ def calcular_tabuada():
 
 # Funções
 def tabuada_multiplicacao(numero, mult):
-    resultados = [ ]
-    for i in range ( 1, mult + 1 ):
-        resultado = numero * i
-        resultados.append ( f'{numero} x {i} = {resultado}' )
-    return resultados
+    return [f'{numero} x {i} = {numero * i}' for i in range(1, mult + 1)]
 
 
 def tabuada_divisao(numero, mult):
-    resultados = [ ]
-    for i in range ( 1, mult + 1 ):
-        resultado = numero / i
-        resultados.append ( f'{numero} / {i} = {resultado:.2f}' )
-    return resultados
+    return [f'{numero} / {i} = {numero / i:.2f}' for i in range(1, mult + 1)]
 
 
 def tabuada_adicao(numero, mult):
-    resultados = [ ]
-    for i in range ( 1, mult + 1 ):
-        resultado = numero + i
-        resultados.append ( f'{numero} x {i} = {resultado}' )
-    return resultados
+    return [f'{numero} + {i} = {numero + i}' for i in range(1, mult + 1)]
 
 
 def tabuada_subtracao(numero, mult):
-    resultados = []
-    for i in range(1, mult + 1):
-        resultado = numero - i
-        if resultado >= 0:
-            resultados.append(f'{numero} - {i} = {resultado}')
-        else:
-            resultados.append(f'{i} - {numero} = {abs(resultado)}')
-    return resultados
+    return [f'{numero} - {i} = {abs(numero - i)}' for i in range(1, mult + 1)]
 
 def tabuada_potencia(numero, mult):
-    resultados = [ ]
-    for i in range ( 1, mult + 1 ):
-        resultado = numero ** i
-        resultados.append ( f'{numero} ** {i} = {resultado}' )
-    return resultados
+    return [f'{numero} ** {i} = {math.pow(numero, i)}' for i in range(1, mult + 1)]
 
 
 def tabuada_raiz_quadrada(numero):
-    resultados = [ ]
-    resultado = math.sqrt ( numero )
-    resultados.append ( f'Raíz quadrada de {numero} = {resultado:.2f}' )
+    resultados = []
+    resultado = math.sqrt(numero)
+    resultados.append(f'Raíz quadrada de {numero} = {resultado:.2f}')
     return resultados
 
 # Configuração da interface
